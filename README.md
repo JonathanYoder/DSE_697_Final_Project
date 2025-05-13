@@ -1,1 +1,16 @@
 # DSE_697_Final_Project
+
+Agricultural Extension work is responsible for sharing agricultural research and knowledge with farmers and producers. While extension agents are available, it would be convenient to have a tool which can aid both agents and stakeholders. This project aims to create an extension tool for Tennessee which can answer questions and disseminate knowledge in a reliable format. This tool can be adapted to other regions by changing the RAG database with regional extension sources.
+
+## Finetuning
+The LLaMA3-8B model was finetuned using an agricultural QA dataset using SFT and LoRA.
+
+## Retrieval Augmented Generation (RAG)
+- Extension document PDFs in the pdf folder are converted to text using the PyMuPDF library
+    - Only one example file included in GitHub, but 560 were used, downloaded from https://utextension.tennessee.edu/publications/
+    - This data is saved to a JSON file (pdfs_as_docs.json)
+- The model BAAI/bge-base-en-v1.5 is used for embedding this text into chunks of length 512 with 30 token overlap and a retriever is made to access this information
+- A pipeline is created for the LLM
+- A prompt template allows the question, context, and instructions to be passed to the LLM
+- A RAG chain is created linking together the retriever with the LLM via the prompt template
+- Finally, each question/answer pair is saved to a file for later assessment (question_answer.json)
