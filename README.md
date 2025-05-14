@@ -4,6 +4,10 @@ Agricultural Extension work is responsible for sharing agricultural research and
 
 ## Finetuning
 The LLaMA3-8B model was finetuned using an agricultural QA dataset using SFT and LoRA.
+Usage:
+- run fetch_model.py to download model
+- run fetch_data.py to download data
+- run train_model.py to train model with data
 
 ## Retrieval Augmented Generation (RAG)
 - Extension document PDFs in the pdf folder are converted to text using the PyMuPDF library
