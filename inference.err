@@ -1,0 +1,48 @@
+
+Lmod is automatically replacing "cce/18.0.1" with "gcc-native/14.2".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.6.0" with "PrgEnv-gnu/8.6.0".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-libsci/24.11.0     2) cray-mpich/8.1.31
+
+
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading checkpoint shards:  14%|█▍        | 1/7 [00:00<00:03,  1.54it/s]
+Loading checkpoint shards:  29%|██▊       | 2/7 [00:01<00:04,  1.14it/s]
+Loading checkpoint shards:  43%|████▎     | 3/7 [00:02<00:04,  1.01s/it]
+Loading checkpoint shards:  57%|█████▋    | 4/7 [00:03<00:03,  1.02s/it]
+Loading checkpoint shards:  71%|███████▏  | 5/7 [00:04<00:02,  1.04s/it]
+Loading checkpoint shards:  86%|████████▌ | 6/7 [00:06<00:01,  1.08s/it]
+Loading checkpoint shards: 100%|██████████| 7/7 [00:06<00:00,  1.13it/s]
+Could not load bitsandbytes native library: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "/gpfs/wolf2/olcf/trn040/scratch/kmn3/envs/hf-transformers1/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 85, in <module>
+    lib = get_native_library()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/wolf2/olcf/trn040/scratch/kmn3/envs/hf-transformers1/lib/python3.12/site-packages/bitsandbytes/cextension.py", line 64, in get_native_library
+    cuda_specs = get_cuda_specs()
+                 ^^^^^^^^^^^^^^^^
+  File "/gpfs/wolf2/olcf/trn040/scratch/kmn3/envs/hf-transformers1/lib/python3.12/site-packages/bitsandbytes/cuda_specs.py", line 39, in get_cuda_specs
+    cuda_version_string=(get_cuda_version_string()),
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/wolf2/olcf/trn040/scratch/kmn3/envs/hf-transformers1/lib/python3.12/site-packages/bitsandbytes/cuda_specs.py", line 29, in get_cuda_version_string
+    major, minor = get_cuda_version_tuple()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/wolf2/olcf/trn040/scratch/kmn3/envs/hf-transformers1/lib/python3.12/site-packages/bitsandbytes/cuda_specs.py", line 24, in get_cuda_version_tuple
+    major, minor = map(int, torch.version.cuda.split("."))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+
+CUDA Setup failed despite CUDA being available. Please run the following command to get more information:
+
+python -m bitsandbytes
+
+Inspect the output of the command and see if you can locate CUDA libraries. You might need to add them
+to your LD_LIBRARY_PATH. If you suspect a bug, please take the information from python -m bitsandbytes
+and open an issue at: https://github.com/bitsandbytes-foundation/bitsandbytes/issues
+
+Device set to use cuda:0
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
